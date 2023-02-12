@@ -2,9 +2,8 @@ import { Input, Button, Select, Card, Switch } from "antd";
 import { Layout } from "antd";
 import { ShoppingCartOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 const { Search } = Input;
-const { Meta } = Card;
 
 import { createFromIconfontCN } from "@ant-design/icons";
 const IconFont = createFromIconfontCN({

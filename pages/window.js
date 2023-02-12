@@ -1,7 +1,6 @@
 import { CloseSquareOutlined, DownloadOutlined } from "@ant-design/icons";
 
 import { Button } from "antd";
-import { useEffect } from "react";
 
 function CartList(props) {
   var items = [];
