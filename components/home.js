@@ -62,8 +62,9 @@ function SearchBar(props) {
         )}
 
         <Switch
-          onChange={(e) => {
-            props.handleDark(!e);
+          onClick={(e) => {
+            console.log(e);
+            props.handleDark(e);
           }}
         ></Switch>
       </div>
