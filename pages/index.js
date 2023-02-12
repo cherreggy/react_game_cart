@@ -1,7 +1,8 @@
+import React from "react";
 import { ConfigProvider, theme } from "antd";
 import { useState } from "react";
-import HomePage from "./home";
-import CartList from "./window";
+import HomePage from "../components/home.js";
+import CartList from "../components/window.js";
 
 function Home() {
   // 捏造的数据
@@ -56,45 +57,47 @@ function Home() {
     },
   ]);
   // 黑夜模式切换按钮
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
   // 是否显示窗口
   const [showWindow, setShowWindow] = useState(false);
   return (
-    <div className={dark ? "relative dark" : "relative"}>
-      <ConfigProvider
-        theme={
-          !dark
-            ? {
-                token: {
-                  colorPrimary: "#000",
-                },
-              }
-            : {
-                algorithm: theme.darkAlgorithm,
-                token: {
-                  colorPrimary: "#333",
-                },
-              }
-        }
-      >
-        <HomePage
-          data={data}
-          showWindow={showWindow}
-          handleShowWindow={setShowWindow}
-          handleData={setData}
-          handleDark={setDark}
-          dark={dark}
-        ></HomePage>
-        {showWindow && (
-          <CartList
-            cartData={data}
+    <React.StrictMode>
+      <div className={dark ? "relative dark" : "relative"}>
+        <ConfigProvider
+          theme={
+            !dark
+              ? {
+                  token: {
+                    colorPrimary: "#000",
+                  },
+                }
+              : {
+                  algorithm: theme.darkAlgorithm,
+                  token: {
+                    colorPrimary: "#333",
+                  },
+                }
+          }
+        >
+          <HomePage
+            data={data}
             showWindow={showWindow}
             handleShowWindow={setShowWindow}
             handleData={setData}
-          ></CartList>
-        )}
-      </ConfigProvider>
-    </div>
+            handleDark={setDark}
+            dark={dark}
+          ></HomePage>
+          {showWindow && (
+            <CartList
+              cartData={data}
+              showWindow={showWindow}
+              handleShowWindow={setShowWindow}
+              handleData={setData}
+            ></CartList>
+          )}
+        </ConfigProvider>
+      </div>
+    </React.StrictMode>
   );
 }
 
